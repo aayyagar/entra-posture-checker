@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Entra Posture - Contoso Demo</title><style>:root{--bg:#f3f4f7;--card:#fff;--ink:#151a2c;--mut:#5b6278;--line:#dcdfe7;--acc:#0e8f80;--pass:#17865f;--warn:#b07a00;--fail:#c8432b;--skip:#7a8197;--soft:#eef0f4}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1220;--card:#181c2e;--ink:#e9ecf4;--mut:#9ca3ba;--line:#2a3048;--acc:#3cc7b4;--pass:#3fc48d;--warn:#e7b43b;--fail:#f07a62;--skip:#8c93aa;--soft:#1f2438;color-scheme:dark}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif}
+.w{max-width:1080px;margin:0 auto;padding:32px 20px 60px}
+header{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end;margin-bottom:24px}
+h1{margin:0;font-size:1.9rem;letter-spacing:-.02em}.sub{color:var(--mut);margin:4px 0 0}
+.mono{font-family:Consolas,"Cascadia Mono",ui-monospace,monospace;font-size:.8rem;color:var(--mut)}
+.top{display:grid;grid-template-columns:240px 1fr;gap:18px;margin-bottom:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+.score{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}
+.score svg{width:150px;height:150px}.score .g{font-size:.85rem;color:var(--mut)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:var(--soft);border-radius:10px;padding:12px}.kpi b{display:block;font-size:1.7rem;line-height:1.1}.kpi span{font-size:.8rem;color:var(--mut)}
+.kpi.fail b{color:var(--fail)}.kpi.warn b{color:var(--warn)}.kpi.pass b{color:var(--pass)}
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cat-h{display:flex;justify-content:space-between;font-weight:600;font-size:.9rem}.cat small{color:var(--mut);font-size:.75rem}
+.trk{height:7px;background:var(--soft);border-radius:4px;margin:6px 0 4px;overflow:hidden}.trk div{height:100%;background:var(--acc)}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 12px;align-items:center}.bar h2{margin:0 auto 0 0;font-size:1.3rem}
+.bar button{font:inherit;font-size:.82rem;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer}
+.bar button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+details.f{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--skip);border-radius:10px;margin-bottom:8px}
+details.f.fail{border-left-color:var(--fail)}details.f.warn{border-left-color:var(--warn)}details.f.pass{border-left-color:var(--pass)}
+summary{display:grid;grid-template-columns:72px 64px 1fr auto;gap:12px;align-items:center;padding:12px 16px;cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+.st{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em}.st.fail{color:var(--fail)}.st.warn{color:var(--warn)}.st.pass{color:var(--pass)}.st.skipped{color:var(--skip)}
+.id{font-family:Consolas,ui-monospace,monospace;font-size:.78rem;color:var(--mut)}.t{font-weight:600}
+.sev{font-size:.7rem;border:1px solid var(--line);border-radius:6px;padding:2px 8px;color:var(--mut)}.sev.critical{color:var(--fail);border-color:var(--fail)}.sev.high{color:var(--warn);border-color:var(--warn)}
+.body{padding:0 16px 16px 164px}.fd{margin:0 0 10px}
+.lbl{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);margin-bottom:2px}
+.rec p{margin:0 0 10px}.ev ul{margin:4px 0 0;padding-left:18px;font-family:Consolas,ui-monospace,monospace;font-size:.8rem;color:var(--mut)}
+.note{margin-top:22px;font-size:.85rem;color:var(--mut)}.note ul{margin:4px 0 0;padding-left:18px}
+footer{margin-top:28px;font-size:.8rem;color:var(--mut)}
+@media (max-width:760px){.top{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.cats{grid-template-columns:1fr}summary{grid-template-columns:60px 1fr;}.id,.sev{display:none}.body{padding:0 16px 16px}}</style></head><body><div class="w">
+<header><div><div class="mono">ENTRA ID SECURITY POSTURE REPORT</div><h1>Contoso Demo</h1><p class="sub">contoso-demo.onmicrosoft.com &middot; 2026-10-22 22:47 UTC &middot; stale threshold 90 days</p></div>
+<div class="mono">Entra Posture Checker v1.0.0</div></header>
+<div class="top">
+<div class="card score"><svg viewBox="0 0 120 120" role="img" aria-label="Score 49 of 100"><circle cx="60" cy="60" r="52" fill="none" stroke="var(--soft)" stroke-width="10"/>
+<circle cx="60" cy="60" r="52" fill="none" stroke="var(--fail)" stroke-width="10" stroke-linecap="round" stroke-dasharray="160.1 400" transform="rotate(-90 60 60)"/>
+<text x="60" y="58" text-anchor="middle" font-size="30" font-weight="700" fill="var(--ink)">49</text><text x="60" y="78" text-anchor="middle" font-size="11" fill="var(--mut)">out of 100</text></svg>
+<b>Grade F</b><span class="g">2 critical issue(s) need attention first.</span></div>
+<div class="card"><div class="kpis"><div class="kpi fail"><b>6</b><span>Failed</span></div><div class="kpi warn"><b>12</b><span>Warnings</span></div><div class="kpi pass"><b>5</b><span>Passed</span></div><div class="kpi"><b>0</b><span>Skipped</span></div></div>
+<div class="cats"><div class='cat'><div class='cat-h'><span>Baseline</span><b>100</b></div><div class='trk'><div style='width:100%'></div></div><small>1 of 1 checks passed</small></div><div class='cat'><div class='cat-h'><span>MFA</span><b>26</b></div><div class='trk'><div style='width:26%'></div></div><small>0 of 3 checks passed</small></div><div class='cat'><div class='cat-h'><span>Conditional Access</span><b>80</b></div><div class='trk'><div style='width:80%'></div></div><small>2 of 5 checks passed</small></div><div class='cat'><div class='cat-h'><span>Privileged Access</span><b>7</b></div><div class='trk'><div style='width:7%'></div></div><small>0 of 4 checks passed</small></div><div class='cat'><div class='cat-h'><span>Accounts &amp; Guests</span><b>50</b></div><div class='trk'><div style='width:50%'></div></div><small>1 of 5 checks passed</small></div><div class='cat'><div class='cat-h'><span>Applications</span><b>50</b></div><div class='trk'><div style='width:50%'></div></div><small>1 of 5 checks passed</small></div></div></div></div>
+<div class="bar"><h2>Findings</h2><button class="on" data-f="All">All 23</button><button data-f="Fail">Failed</button><button data-f="Warn">Warnings</button><button data-f="Pass">Passed</button><button data-f="Skipped">Skipped</button></div>
+<details class='f fail' data-status='Fail' open>
+<summary><span class='st fail'>Fail</span><span class='id'>MFA-01</span><span class='t'>All privileged users are registered for MFA</span><span class='sev critical'>Critical</span></summary>
+<div class='body'><p class='fd'>2 of 8 privileged users have no MFA method registered.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Require MFA registration for every admin before they can use their role. Block sign-in for admin accounts that cannot register.</p></div><div class='ev'><span class='lbl'>Evidence (2)</span><ul><li>legacy.admin@contoso-demo.com - Global Administrator</li><li>partner.ext_fabrikam.com#EXT#@contoso-demo.com - Helpdesk Administrator</li></ul></div></div>
+</details>
+<details class='f fail' data-status='Fail' open>
+<summary><span class='st fail'>Fail</span><span class='id'>PRV-03</span><span class='t'>No guest accounts hold privileged roles</span><span class='sev critical'>Critical</span></summary>
+<div class='body'><p class='fd'>1 privileged role assignments belong to guest accounts. Their security depends on another organization&#39;s controls.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Remove privileged roles from guests. If an external admin is needed, issue a managed member account with MFA and PIM.</p></div><div class='ev'><span class='lbl'>Evidence (1)</span><ul><li>partner.ext_fabrikam.com#EXT#@contoso-demo.com - Helpdesk Administrator</li></ul></div></div>
+</details>
+<details class='f fail' data-status='Fail'>
+<summary><span class='st fail'>Fail</span><span class='id'>APP-05</span><span class='t'>No apps hold high-risk Microsoft Graph permissions</span><span class='sev high'>High</span></summary>
+<div class='body'><p class='fd'>1 app permission grants allow a path to full tenant control, plus 1 sensitive grants.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Remove Tier 0 permissions or replace them with narrower ones. Protect these apps like Global Administrators: owners, credentials and sign-in monitoring.</p></div><div class='ev'><span class='lbl'>Evidence (2)</span><ul><li>TIER 0: Directory Sync Tool - Directory.ReadWrite.All</li><li>Sensitive: Mail Archiver - Mail.ReadWrite</li></ul></div></div>
+</details>
+<details class='f fail' data-status='Fail'>
+<summary><span class='st fail'>Fail</span><span class='id'>PRV-01</span><span class='t'>Global Administrator count is between 2 and 4</span><span class='sev high'>High</span></summary>
+<div class='body'><p class='fd'>5 principals hold Global Administrator (active or eligible).</p><div class='rec'><span class='lbl'>Recommendation</span><p>Reduce Global Administrators to 4 or fewer. Move day-to-day work to least-privileged roles such as User, Exchange or Security Administrator.</p></div><div class='ev'><span class='lbl'>Evidence (5)</span><ul><li>admin.alex@contoso-demo.com</li><li>admin.blair@contoso-demo.com</li><li>legacy.admin@contoso-demo.com</li><li>breakglass01@contoso-demo.com</li><li>breakglass02@contoso-demo.com</li></ul></div></div>
+</details>
+<details class='f fail' data-status='Fail'>
+<summary><span class='st fail'>Fail</span><span class='id'>PRV-02</span><span class='t'>Privileged roles use just-in-time access</span><span class='sev high'>High</span></summary>
+<div class='body'><p class='fd'>6 permanent active privileged assignments; 3 eligible (just-in-time) assignments.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Convert permanent assignments to PIM eligible. Keep permanent Global Administrator only for 2 monitored break-glass accounts.</p></div><div class='ev'><span class='lbl'>Evidence (6)</span><ul><li>breakglass01@contoso-demo.com - Global Administrator</li><li>breakglass02@contoso-demo.com - Global Administrator</li><li>legacy.admin@contoso-demo.com - Global Administrator</li><li>admin.blair@contoso-demo.com - Exchange Administrator</li><li>helpdesk.dana@contoso-demo.com - Helpdesk Administrator</li><li>partner.ext_fabrikam.com#EXT#@contoso-demo.com - Helpdesk Administrator</li></ul></div></div>
+</details>
+<details class='f fail' data-status='Fail'>
+<summary><span class='st fail'>Fail</span><span class='id'>ACC-01</span><span class='t'>No stale member accounts</span><span class='sev medium'>Medium</span></summary>
+<div class='body'><p class='fd'>7 enabled members (11.9%) have not signed in for 90+ days.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Review with managers and HR, then disable accounts that are no longer needed. Automate this with access reviews or a joiner-mover-leaver process.</p></div><div class='ev'><span class='lbl'>Evidence (7)</span><ul><li>gus.adams@contoso-demo.com - last sign-in 271 days ago</li><li>milo.brooks@contoso-demo.com - last sign-in 160 days ago</li><li>tara.adams@contoso-demo.com - last sign-in 129 days ago</li><li>zoe.brooks@contoso-demo.com - last sign-in 161 days ago</li><li>legacy.admin@contoso-demo.com - last sign-in 210 days ago</li><li>breakglass01@contoso-demo.com - last sign-in 400 days ago</li><li>breakglass02@contoso-demo.com - last sign-in 400 days ago</li></ul></div></div>
+</details>
+<details class='f warn' data-status='Warn'>
+<summary><span class='st warn'>Warn</span><span class='id'>CA-02</span><span class='t'>MFA is required for all users</span><span class='sev high'>High</span></summary>
+<div class='body'><p class='fd'>&#39;CA003 - Require MFA for all users&#39; exists but is in report-only mode, so it does not enforce MFA.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Review the report-only results in sign-in logs, then switch the policy to On.</p></div></div>
+</details>
+<details class='f warn' data-status='Warn'>
+<summary><span class='st warn'>Warn</span><span class='id'>MFA-02</span><span class='t'>Members are registered for MFA</span><span class='sev high'>High</span></summary>
+<div class='body'><p class='fd'>84.7% of 59 enabled members are registered for MFA (9 not registered).</p><div class='rec'><span class='lbl'>Recommendation</span><p>Run an MFA registration campaign and enforce registration through Conditional Access or the authentication methods registration campaign.</p></div><div class='ev'><span class='lbl'>Evidence (9)</span><ul><li>farah.brooks@contoso-demo.com</li><li>hana.adams@contoso-demo.com</li><li>ivan.brooks@contoso-demo.com</li><li>kai.brooks@contoso-demo.com</li><li>milo.adams@contoso-demo.com</li><li>omar.brooks@contoso-demo.com</li><li>priya.adams@contoso-demo.com</li><li>vera.brooks@contoso-demo.com</li><li>legacy.admin@contoso-demo.com</li></ul></div></div>
+</details>
+<details class='f warn' data-status='Warn'>
+<summary><span class='st warn'>Warn</span><span class='id'>ACC-02</span><span class='t'>No stale guest accounts</span><span class='sev medium'>Medium</span></summary>
+<div class='body'><p class='fd'>3 of 7 guests have not signed in for 90+ days.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Set up a recurring guest access review and remove guests who no longer collaborate with you.</p></div><div class='ev'><span class='lbl'>Evidence (3)</span><ul><li>consultant_tailspin.com#EXT#@contoso-demo.com - last sign-in 160 days ago</li><li>auditor_northwind.com#EXT#@contoso-demo.com - last sign-in 300 days ago</li><li>legal_proseware.com#EXT#@contoso-demo.com - last sign-in 95 days ago</li></ul></div></div>
+</details>
+<details class='f warn' data-status='Warn'>
+<summary><span class='st warn'>Warn</span><span class='id'>ACC-04</span><span class='t'>Guest invitations are restricted</span><span class='sev medium'>Medium</span></summary>
+<div class='body'><p class='fd'>All members can invite guests.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Limit invitations to admins and users with the Guest Inviter role, or route requests through entitlement management.</p></div></div>
+</details>
+<details class='f warn' data-status='Warn'>
+<summary><span class='st warn'>Warn</span><span class='id'>APP-01</span><span class='t'>Users cannot register applications</span><span class='sev medium'>Medium</span></summary>
+<div class='body'><p class='fd'>Any user can create app registrations, which can be used to set up persistence or consent-phishing apps.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Set &#39;Users can register applications&#39; to No and grant the Application Developer role to those who need it.</p></div></div>
+</details>
+<details class='f warn' data-status='Warn'>
+<summary><span class='st warn'>Warn</span><span class='id'>APP-03</span><span class='t'>No expired or expiring app credentials</span><span class='sev medium'>Medium</span></summary>
+<div class='body'><p class='fd'>1 credentials expire within 30 days and 1 have already expired.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Rotate expiring credentials before they cause outages, and remove expired ones. Prefer certificates or managed identities over secrets.</p></div><div class='ev'><span class='lbl'>Evidence (2)</span><ul><li>HR Sync Connector - Secret expires in 12 days</li><li>Legacy Reporting - Secret expired 35 days ago</li></ul></div></div>
+</details>
+<details class='f warn' data-status='Warn'>
+<summary><span class='st warn'>Warn</span><span class='id'>CA-04</span><span class='t'>Risk-based policies are in place</span><span class='sev medium'>Medium</span></summary>
+<div class='body'><p class='fd'>Only a sign-in risk policy is enforced.</p><div class='rec'><span class='lbl'>Recommendation</span><p>With Entra ID P2, add policies requiring MFA for medium/high sign-in risk and a secure password change for high user risk.</p></div></div>
+</details>
+<details class='f warn' data-status='Warn'>
+<summary><span class='st warn'>Warn</span><span class='id'>MFA-03</span><span class='t'>Admins use phishing-resistant authentication</span><span class='sev medium'>Medium</span></summary>
+<div class='body'><p class='fd'>4 of 8 privileged users have a phishing-resistant method (FIDO2, passkey, Windows Hello for Business or certificate).</p><div class='rec'><span class='lbl'>Recommendation</span><p>Issue FIDO2 keys or passkeys to admins and require a phishing-resistant authentication strength for admin roles.</p></div><div class='ev'><span class='lbl'>Evidence (4)</span><ul><li>admin.blair@contoso-demo.com</li><li>legacy.admin@contoso-demo.com</li><li>partner.ext_fabrikam.com#EXT#@contoso-demo.com</li><li>helpdesk.dana@contoso-demo.com</li></ul></div></div>
+</details>
+<details class='f warn' data-status='Warn'>
+<summary><span class='st warn'>Warn</span><span class='id'>PRV-04</span><span class='t'>Privileged accounts are actively used</span><span class='sev medium'>Medium</span></summary>
+<div class='body'><p class='fd'>1 privileged accounts have not signed in for 90+ days.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Remove roles from unused admin accounts or disable them. Unused admins are prime takeover targets.</p></div><div class='ev'><span class='lbl'>Evidence (1)</span><ul><li>legacy.admin@contoso-demo.com - last sign-in 210 days ago - Global Administrator</li></ul></div></div>
+</details>
+<details class='f warn' data-status='Warn'>
+<summary><span class='st warn'>Warn</span><span class='id'>ACC-03</span><span class='t'>No long-pending guest invitations</span><span class='sev low'>Low</span></summary>
+<div class='body'><p class='fd'>2 guest invitations have been pending for 30+ days.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Delete unredeemed invitations. An old invitation link can still be redeemed by whoever holds it.</p></div><div class='ev'><span class='lbl'>Evidence (2)</span><ul><li>vendor_adatum.com#EXT#@contoso-demo.com - invited 120 days ago</li><li>temp_litware.com#EXT#@contoso-demo.com - invited 120 days ago</li></ul></div></div>
+</details>
+<details class='f warn' data-status='Warn'>
+<summary><span class='st warn'>Warn</span><span class='id'>APP-04</span><span class='t'>App secrets are short-lived</span><span class='sev low'>Low</span></summary>
+<div class='body'><p class='fd'>1 active client secrets are valid for more than 12 months.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Limit secret lifetime with an app management policy (for example 6 to 12 months), or switch to certificates or workload identity federation.</p></div><div class='ev'><span class='lbl'>Evidence (1)</span><ul><li>Backup Automation - secret valid for 730 days</li></ul></div></div>
+</details>
+<details class='f warn' data-status='Warn'>
+<summary><span class='st warn'>Warn</span><span class='id'>CA-05</span><span class='t'>No stale report-only or disabled policies</span><span class='sev low'>Low</span></summary>
+<div class='body'><p class='fd'>1 policies in report-only for 30+ days and 1 disabled.</p><div class='rec'><span class='lbl'>Recommendation</span><p>Promote report-only policies after review, and delete disabled policies you no longer need.</p></div><div class='ev'><span class='lbl'>Evidence (2)</span><ul><li>Report-only since 75 days ago: CA003 - Require MFA for all users</li><li>Disabled: CA099 - OLD block countries</li></ul></div></div>
+</details>
+<details class='f pass' data-status='Pass'>
+<summary><span class='st pass'>Pass</span><span class='id'>BAS-01</span><span class='t'>Security defaults or Conditional Access is enforced</span><span class='sev critical'>Critical</span></summary>
+<div class='body'><p class='fd'>3 Conditional Access policies are enforced.</p></div>
+</details>
+<details class='f pass' data-status='Pass'>
+<summary><span class='st pass'>Pass</span><span class='id'>CA-01</span><span class='t'>Legacy authentication is blocked</span><span class='sev critical'>Critical</span></summary>
+<div class='body'><p class='fd'>Blocked by &#39;CA001 - Block legacy authentication&#39; (excludes 2 user/group object(s) - confirm these are break-glass accounts).</p></div>
+</details>
+<details class='f pass' data-status='Pass'>
+<summary><span class='st pass'>Pass</span><span class='id'>CA-03</span><span class='t'>MFA is required for administrator roles</span><span class='sev critical'>Critical</span></summary>
+<div class='body'><p class='fd'>Enforced by &#39;CA002 - Require MFA for administrators&#39;.</p></div>
+</details>
+<details class='f pass' data-status='Pass'>
+<summary><span class='st pass'>Pass</span><span class='id'>APP-02</span><span class='t'>User consent to apps is restricted</span><span class='sev high'>High</span></summary>
+<div class='body'><p class='fd'>Users can consent only to verified publishers requesting low-impact permissions.</p></div>
+</details>
+<details class='f pass' data-status='Pass'>
+<summary><span class='st pass'>Pass</span><span class='id'>ACC-05</span><span class='t'>Guest directory access is limited</span><span class='sev medium'>Medium</span></summary>
+<div class='body'><p class='fd'>Guest access level: Limited access (default).</p></div>
+</details>
+<div class='note'><b>Data notes</b><ul><li>Demo mode: all data is synthetic and generated locally.</li></ul></div>
+<footer>Read-only assessment. Score weights: Critical 10, High 7, Medium 4, Low 2; a warning counts half; skipped checks are excluded. Generated by Entra Posture Checker &middot; github.com/aayyagar/entra-posture-checker</footer>
+</div><script>document.querySelectorAll('.bar button').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('.bar button').forEach(function(x){x.classList.remove('on')});b.classList.add('on');
+var f=b.getAttribute('data-f');document.querySelectorAll('details.f').forEach(function(d){d.style.display=(f==='All'||d.getAttribute('data-status')===f)?'':'none'})})});</script></body></html>
