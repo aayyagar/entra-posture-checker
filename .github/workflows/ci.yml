@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint with PSScriptAnalyzer
+        run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module PSScriptAnalyzer -Force -Scope CurrentUser
+          $r = Invoke-ScriptAnalyzer -Path . -Recurse -Severity Error, Warning
+          $r | Format-Table RuleName, Severity, ScriptName, Line, Message -AutoSize -Wrap
+          if (@($r | Where-Object Severity -eq 'Error').Count) { throw 'PSScriptAnalyzer found errors' }
+      - name: Run
+        run: |
+          ./Invoke-EntraPostureCheck.ps1 -Demo
+          $html = @(Get-ChildItem -Recurse -Filter *.html | Where-Object { $_.FullName -notmatch 'sample-report' })
+          if (-not $html.Count) { throw 'The demo run did not write an HTML report' }
+          "Report written: $($html[0].FullName)"

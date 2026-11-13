@@ -2,7 +2,7 @@
 
 A read-only PowerShell tool that assesses the identity security of a Microsoft Entra ID tenant. It runs 23 checks across MFA, Conditional Access, privileged access, guests and applications, then produces a scored HTML report with evidence and a recommendation for every finding.
 
-**[View the sample report →](https://aayyagar.github.io/entra-posture-checker/sample-report/)**
+**[View the sample report →](https://aayyagar.github.io/entra-posture-checker/sample-report/index.html)**
 
 ## Why
 
@@ -19,7 +19,7 @@ Most tenant compromises start with the same few gaps: admins without MFA, legacy
 | CA-01 | Conditional Access | Legacy authentication is blocked | Critical |
 | CA-02 | Conditional Access | MFA is required for all users | High |
 | CA-03 | Conditional Access | MFA is required for administrator roles | Critical |
-| CA-04 | Conditional Access | Sign-in risk and user risk policies are in place | Medium |
+| CA-04 | Conditional Access | Risk-based policies are in place (sign-in and user risk) | Medium |
 | CA-05 | Conditional Access | No stale report-only or disabled policies | Low |
 | PRV-01 | Privileged Access | Global Administrator count is between 2 and 4 | High |
 | PRV-02 | Privileged Access | Privileged roles use just-in-time (PIM) access | High |
@@ -34,7 +34,7 @@ Most tenant compromises start with the same few gaps: admins without MFA, legacy
 | APP-02 | Applications | User consent to apps is restricted | High |
 | APP-03 | Applications | No expired or expiring app credentials | Medium |
 | APP-04 | Applications | App secrets are short-lived | Low |
-| APP-05 | Applications | No apps hold Tier 0 or broad Microsoft Graph permissions | High |
+| APP-05 | Applications | No apps hold high-risk Microsoft Graph permissions (Tier 0 or broad) | High |
 
 ## Scoring
 
